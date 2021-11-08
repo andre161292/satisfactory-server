@@ -52,6 +52,6 @@ else
     usermod -u "${PUID}" steam
 fi
 
-chown -R "${PUID}":"${PGID}" /config /home/steam
+sudo chown -R "${PUID}":"${PGID}" /config /home/steam
 
 sudo -u "${USER}" -E -H sh -c "/home/steam/run.sh"
