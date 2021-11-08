@@ -2,20 +2,7 @@
 
 set -e
 
-NUMCHECK='^[0-9]+$'
-
-if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
-    printf "Invalid max players given: ${MAXPLAYERS}\\n"
-    MAXPLAYERS="16"
-fi
-
 printf "Setting max players to ${MAXPLAYERS}\\n"
-sed "s/MaxPlayers\=16/MaxPlayers=$MAXPLAYERS/" -i "/home/steam/Game.ini"
-
-if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
-    printf "Invalid max players given: ${MAXPLAYERS}\\n"
-    MAXPLAYERS="16"
-fi
 
 if [[ "$SKIPUPDATE" == "false" ]]; then
     if [[ "$STEAMBETA" == "true" ]]; then
